@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>flt_ui</class>
+ <widget class="QWidget" name="flt_ui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>45</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>45</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>45</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Filter</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #353d42; color: #c1c5c8</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+   <item>
+    <layout class="QHBoxLayout" name="flt_layout" stretch="1,0,2,0">
+     <item>
+      <widget class="QComboBox" name="fld_cbx">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #202222; color: #f8f8f8; selection-background-color: #4383a8; selection-color: #FFFFFF</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>sg_status_list</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>sg_task_stage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>sg_an_task_type</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cnd_cbx">
+       <property name="minimumSize">
+        <size>
+         <width>115</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>115</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #202222; color: #f8f8f8; selection-background-color: #4383a8; selection-color: #FFFFFF</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>contains</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>does not contain</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>is</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>is not</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="val_le">
+       <property name="toolTip">
+        <string>password or API key </string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="add_bt">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #616161; color: #f8f8f8;</string>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
