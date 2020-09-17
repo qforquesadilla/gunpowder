@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>auth_ui</class>
+ <widget class="QWidget" name="auth_ui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>230</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>230</width>
+    <height>150</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>230</width>
+    <height>150</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Authentication</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #353d42; color: #c1c5c8</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="auth_lbl">
+     <property name="text">
+      <string>Please enter your SHOTGUN credentials.</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="url_le">
+     <property name="cursor">
+      <cursorShape>IBeamCursor</cursorShape>
+     </property>
+     <property name="toolTip">
+      <string>URL of your SHOTGUN site</string>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+     </property>
+     <property name="text">
+      <string>example.shotgunstudio.com</string>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="login_le">
+     <property name="toolTip">
+      <string>human user name or script name</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+     </property>
+     <property name="inputMask">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>login</string>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="password_le">
+     <property name="toolTip">
+      <string>password or API key </string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+     </property>
+     <property name="text">
+      <string>password</string>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="button_layout">
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="cancel_bt">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="auth_bt">
+       <property name="styleSheet">
+        <string notr="true">background-color: #1fa6e8; color: #c6ffff</string>
+       </property>
+       <property name="text">
+        <string>Authenticate</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
