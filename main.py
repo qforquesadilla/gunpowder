@@ -22,15 +22,19 @@ class run():
         self.sg_url = None
         self.sg_login = None
         self.sg_password = None
-        
+
         self.entity_all = []
         self.fields_all = []
 
+        self.edit_flt_idx = None
+        self.edit_fld_idx = None
+
         # ui
-        self.ui()
+        self.buildUI()
         self.authLinkCommands()
         self.mainLinkCommands()
         self.filterLinkCommands()
+        self.fieldLinkCommands()
 
         # config
         if not self.setupConfig():
@@ -76,11 +80,16 @@ class run():
         self.sg_login = self.config_data.get("sg_login", None)
         self.sg_password = self.config_data.get("sg_password", None)
         self.entity_all = self.config_data.get("entity", None)
+        self.condition = self.config_data.get("condition", None)
+        print(self.condition)
+        print(self.condition)
+        print(self.condition)
+        print(self.condition["is"])
 
         return True
 
 
-    def ui(self):
+    def buildUI(self):
         self.app = QApplication(sys.argv)
         auth_ui_path = os.path.abspath(os.path.join(os.path.dirname(__file__),'interface/auth.ui')).replace('\\', '/')
         main_ui_path = os.path.abspath(os.path.join(os.path.dirname(__file__),'interface/main.ui')).replace('\\', '/')
@@ -124,11 +133,11 @@ class run():
 
 
     def filterLinkCommands(self):
-        self.flt_ui.add_bt.clicked.connect(self.dummy)
+        self.flt_ui.add_bt.clicked.connect(self.updateFilterCmd)
 
 
     def fieldLinkCommands(self):
-        self.fld_ui.add_bt.clicked.connect(self.dummy)
+        self.fld_ui.add_bt.clicked.connect(self.updateFieldCmd)
 
 
     def startup(self):
@@ -176,41 +185,49 @@ class run():
 
 
     def addFilterCmd(self, edit=False, *args):
+        self.edit_flt_idx = None
         
         if edit:
+            # get current values
+            self.edit_flt_idx = self.main_ui.flt_lw.currentRow()
             flt_val = self.main_ui.flt_lw.currentItem().text()
             fld = flt_val.split(";")[0]
             cnd = flt_val.split(";")[1]
-            val = flt_val.split(";")[2]
             
-            print(fld)
-            print(cnd)
-            print(val)
+            for k, v in zip(self.condition.keys(), self.condition.values()):
+                if v == cnd:
+                    cnd = k
 
+            val = flt_val.split(";")[2]
+
+            # set values to filter ui if exist
             self.flt_ui.show()
 
             self.flt_ui.fld_cbx.clear()
             self.flt_ui.fld_cbx.addItems(self.field_all)
 
             flt_idx = self.flt_ui.fld_cbx.findText(fld)
+            if flt_idx == -1:
+                flt_idx = 0
             self.flt_ui.fld_cbx.setCurrentIndex(flt_idx)
 
             cnd_idx = self.flt_ui.cnd_cbx.findText(cnd)
+            if cnd_idx == -1:
+                cnd_idx = 0
             self.flt_ui.cnd_cbx.setCurrentIndex(cnd_idx)
-            
+
             self.flt_ui.val_le.setText(val)
 
         else:
             self.flt_ui.show()
-
-        self.flt_ui.fld_cbx.setCurrentIndex(0)
+            self.flt_ui.fld_cbx.setCurrentIndex(0)
 
 
     def addFieldCmd(self, edit=False, *args):
+        self.edit_fld_idx = None
 
-
+        # set items except for duplicates
         self.fld_ui.show()
-
         self.fld_ui.fld_cbx.clear()
         
         item_all =  [str(self.main_ui.fld_lw.item(i).text()) for i in range(self.main_ui.fld_lw.count())]
@@ -222,31 +239,76 @@ class run():
 
         self.fld_ui.fld_cbx.addItems(item_tgt)
 
+        # set current value if exists
         if edit:
+            self.edit_fld_idx = self.main_ui.fld_lw.currentRow()
             fld_val = self.main_ui.fld_lw.currentItem().text()
             fld_idx = self.fld_ui.fld_cbx.findText(fld_val)
+            if fld_idx == -1:
+                fld_idx = 0
             self.fld_ui.fld_cbx.setCurrentIndex(fld_idx)
 
-        self.fld_ui.fld_cbx.setCurrentIndex(0)
+        else:
+            self.fld_ui.fld_cbx.setCurrentIndex(0)
 
 
     def removeItemCmd(self, mode, *args):
 
+        # get ui from mode
         if mode == "flt":
             ui = self.main_ui.flt_lw
         else:
             ui = self.main_ui.fld_lw
 
+        # remove item from index
         item = ui.currentItem()
         idx = ui.row(item)
         ui.takeItem(idx)
 
 
+    ######################
+    # FILTER UI COMMANDS #
+    ######################
+
+    def updateFilterCmd(self, *args):
+
+        fld = self.flt_ui.fld_cbx.currentText()
+        cnd = self.flt_ui.cnd_cbx.currentText()
+        cnd = self.condition[cnd]
+        val = self.flt_ui.val_le.text()
+        flt_val = ";".join([fld, cnd, val])
+
+        # replace values if edit mode
+        if self.edit_flt_idx != None:
+            self.main_ui.flt_lw.takeItem(self.edit_flt_idx)
+            self.main_ui.flt_lw.insertItem(self.edit_flt_idx, flt_val)
+            print(self.edit_flt_idx)
+            print(flt_val)
+            self.edit_flt_idx = None
+        else:
+            self.main_ui.flt_lw.addItem(flt_val)
+
+        self.flt_ui.close()
 
 
+    def updateFieldCmd(self, *args):
 
+        fld_val = self.fld_ui.fld_cbx.currentText()
 
+        # return if all fields are already listed
+        if fld_val in [None, ""]:
+            self.fld_ui.close()
+            return
 
+        # replace values if edit mode
+        if self.edit_fld_idx != None:
+            self.main_ui.fld_lw.takeItem(self.edit_fld_idx)
+            self.main_ui.fld_lw.insertItem(self.edit_fld_idx, fld_val)
+            self.edit_fld_idx = None
+        else:
+            self.main_ui.fld_lw.addItem(fld_val)
+
+        self.fld_ui.close()
 
 if __name__ == "__main__":
     run()

@@ -141,5 +141,12 @@
             "Ticket_sg_related_assets_Connection",
             "TimeLog",
             "Version"
-            ]
+            ],
+    "condition":{
+                "is": "is",
+                "is not": "is_not",
+                "contains": "in",
+                "does not contain": "not_in"
+                }
+
 }
