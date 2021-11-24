@@ -26,7 +26,7 @@ class Gunpowder(object):
         self.__demo = True
 
         # config
-        self.__toolRootDir = os.path.normpath((os.path.dirname(__file__))
+        self.__toolRootDir = os.path.normpath((os.path.dirname(__file__)))
         self.__configPath = os.path.normpath(os.path.join(self.__toolRootDir, 'data/config.json'))
         self.__cachePath = os.path.normpath(os.path.join(self.__toolRootDir, 'data/cache.json'))
         self.__demoPath = os.path.normpath(os.path.join(self.__toolRootDir, 'data/demo.json'))
