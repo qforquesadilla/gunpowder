@@ -32,11 +32,15 @@
    <string>Authentication</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #353d42; color: #c1c5c8</string>
+   <string notr="true">background-color: #313333;
+color: #FFFFFF;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="auth_lbl">
+     <property name="styleSheet">
+      <string notr="true">color: #a6a6a6;</string>
+     </property>
      <property name="text">
       <string>Please enter your SHOTGUN credentials.</string>
      </property>
@@ -54,7 +58,8 @@
       <string/>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+      <string notr="true">background-color: #202222;
+color: #FFFFFF</string>
      </property>
      <property name="text">
       <string>example.shotgunstudio.com</string>
@@ -76,7 +81,8 @@
       <string>human user name or script name</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+      <string notr="true">background-color: #202222;
+color: #FFFFFF</string>
      </property>
      <property name="inputMask">
       <string notr="true"/>
@@ -104,7 +110,8 @@
       <string>password or API key </string>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+      <string notr="true">background-color: #202222;
+color: #FFFFFF</string>
      </property>
      <property name="text">
       <string>password</string>
@@ -126,22 +133,37 @@
       <number>5</number>
      </property>
      <item>
-      <widget class="QPushButton" name="cancel_bt">
+      <widget class="QPushButton" name="demo_bt">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #616161; color: #f8f8f8;</string>
+       </property>
        <property name="text">
-        <string>Cancel</string>
-       </property>
-       <property name="default">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
+        <string>Demo</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="auth_bt">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: #1fa6e8; color: #c6ffff</string>
+        <string notr="true">background-color: #23a5e1; color: #f8f8f8;</string>
        </property>
        <property name="text">
         <string>Authenticate</string>

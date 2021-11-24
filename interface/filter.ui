@@ -32,9 +32,19 @@
    <string>Filter</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #353d42; color: #c1c5c8</string>
+   <string notr="true">background-color: #313333;
+color: #c0c0c0;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+   <property name="leftMargin">
+    <number>7</number>
+   </property>
+   <property name="rightMargin">
+    <number>7</number>
+   </property>
+   <property name="bottomMargin">
+    <number>7</number>
+   </property>
    <item>
     <layout class="QHBoxLayout" name="flt_layout" stretch="1,0,2,0">
      <item>
@@ -110,7 +120,8 @@
         <string>password or API key </string>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: #1e1f23; color: #c1c5c8; selection-background-color: #a27e2f; selection-color: #FFFFFF; border-color: #257190; border-style :solid; border-width:1px</string>
+        <string notr="true">background-color: #202222;
+color: #FFFFFF</string>
        </property>
        <property name="text">
         <string/>
