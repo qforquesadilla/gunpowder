@@ -1,0 +1,42 @@
+{
+    "Asset": [
+        "project",
+        "code",
+        "id",
+        "sequences",
+        "shots",
+        "tasks",
+        "sg_namespace",
+        "tags"
+    ],
+    "Shot": [
+        "code",
+        "id",
+        "shots",
+        "tags",
+        "cut_in",
+        "cut_out",
+        "cut_duration",
+        "sg_camera",
+        "sg_camera_fixed"
+    ],
+    "Task": [
+        "content",
+        "id",
+        "step",
+        "due_date",
+        "duration",
+        "sg_namespace",
+        "sg_description"
+    ],
+    "Version": [
+        "code",
+        "id",
+        "entity",
+        "playlists",
+        "tasks",
+        "client_approved",
+        "sg_status_list",
+        "sg_department"
+    ]
+}
