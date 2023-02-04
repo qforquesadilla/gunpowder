@@ -2,11 +2,11 @@ import json
 import shotgun_api3
 
 '''
-SgUtil
+Gunpowder API
 '''
 
 
-class SgUtil(object):
+class GunpowderApi(object):
 
     def __init__(self, demoPath=''):
         '''
@@ -14,50 +14,45 @@ class SgUtil(object):
         '''
 
         self.__sg = None
-        self.__demoPath = demoPath
 
-        if self.__demoPath == '':
+        if demoPath:
+            self.__demo = True
+
+            try:
+                with open(demoPath) as d:
+                    self.__demoData = json.load(d)
+            except Exception as err:
+                print('Failed to load demo: {}'.format(demoPath))
+                print(str(err))
+
+        else:
             self.__demo = False
             self.__demoData = None
-        else:
-            self.__demo = True
-            if not self.setupDemo():
-                return
 
 
-    def setupDemo(self):
-        '''
-        '''
-
-        try:
-            with open(self.__demoPath) as d:
-                self.__demoData = json.load(d)
-        except Exception as err:
-            print('Failed to load demo: {}'.format(self.__demoPath))
-            print(str(err))
-            return False
+        print(self.__demoData)
 
 
     ##################
     # AUTHENTICATION #
     ##################
 
+
     def authenticate(self, url, login, password):
         '''
         '''
 
         if self.__demo:
-            print('demodemo')
             self.__sg = 'demo'
         else:
-            print('modemode')
             self.__sg = shotgun_api3.Shotgun(url, login, password)
-            # add human auth too
+            # TODO: support human auth too
 
 
     #################
     # BASE COMMANDS #
     #################
+
 
     def __find(self, entity, filters, fields):
         '''
@@ -95,6 +90,7 @@ class SgUtil(object):
     ###################
     # CUSTOM COMMANDS #
     ###################
+
 
     def getEntityField(self):
         '''
