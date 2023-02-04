@@ -1,2 +1,2 @@
 # gunpowder
-Shotgun data manager
+Shotgun Data Manager
