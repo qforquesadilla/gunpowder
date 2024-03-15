@@ -1,2 +1,4 @@
 # gunpowder
-Shotgun Data Manager
+ShotGrid Data Manager
+
+![gunpowderUi](misc/gunpowderUi.png)
