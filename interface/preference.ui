@@ -157,7 +157,7 @@ color: #FFFFFF;</string>
     </layout>
    </item>
    <item>
-    <widget class="Line" name="authenticationSP">
+    <widget class="Line" name="authenticationHL">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -231,7 +231,7 @@ color: #FFFFFF;</string>
     </layout>
    </item>
    <item>
-    <widget class="Line" name="targetEntitiesSP">
+    <widget class="Line" name="targetEntitiesHL">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -278,7 +278,7 @@ color: #FFFFFF;</string>
     </layout>
    </item>
    <item>
-    <widget class="Line" name="buttonsSP">
+    <widget class="Line" name="buttonsHL">
      <property name="minimumSize">
       <size>
        <width>0</width>
